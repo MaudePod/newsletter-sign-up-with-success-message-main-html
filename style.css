@@ -1,0 +1,173 @@
+:root {
+    /*Primary*/
+    --tomato: hsl(4, 100%, 67%);
+    /*Neutral*/
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+}
+
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(./assets/fonts/Roboto-Regular.ttf);
+}
+
+body {
+    display: grid;
+    width: 100svw;
+    height: 100svh;
+    container: body / inline-size;
+    margin: 0;
+    font-weight: 400;
+    place-items: center;
+    font-family: 'Roboto';
+    color: var(--charcoal-grey);
+}
+
+main {
+    display: grid;
+    min-height: 100svh;
+    width: 100svw;
+    container: main / inline-size;
+    place-items: center;
+    background: var(--grey);
+}
+
+section[class="sign-up-form-card"] {
+    display: grid;
+    width: 80cqw;
+    height: 70cqh;
+    grid-template-columns: 60% auto;
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 50px;
+    background: white;
+}
+
+section[class="card-text"] {
+    display: grid;
+    width: 80%;
+    place-content: center;
+}
+
+section[class="card-text"] h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-slate-grey);
+}
+
+section[class="card-text"] p {}
+
+section[class="card-text"] ul {}
+
+section[class="card-text"] li {
+    list-style-image: url(./assets/images/icon-list.svg);
+}
+
+label[for="email"],
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+}
+
+label[for="email"] {
+    color: var(--dark-slate-grey);
+    font-weight: 700;
+    position: relative;
+}
+
+input[id="email"] {
+    height: 50px;
+    padding-inline: 20px;
+    border-width: 1px;
+    outline-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+form:has(input[id="email"]:user-invalid) {
+    input[id="email"] {
+        background: pink;
+        border-color: var(--tomato);
+    }
+
+    label[for="email"]::before {
+        content: "Valid email required";
+        color: var(--tomato);
+        font-weight: 700;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+    }
+}
+
+button {
+    height: 50px;
+    background-color: var(--dark-slate-grey);
+    border-color: transparent;
+    outline-color: transparent;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+section[class="card-image-container"] {
+    height: 100%;
+    width: 100%;
+    display: grid;
+}
+
+section[class="card-image-container"] svg {
+    height: 100%;
+    width: 100%;
+}
+
+div {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
+@container (inline-size <1000px) {
+    section[class="sign-up-form-card"] {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        grid-template-columns: 1fr;
+        padding: 0;
+        grid-template-rows: 30% auto;
+    }
+
+    section[class="card-image-container"] {
+        order: 1;
+        width: auto;
+    }
+
+    section[class="card-text"] {
+        order: 2;
+        width: auto;
+        box-sizing: border-box;
+        padding: 30px;
+    }
+
+    section[class="card-image-container"] {
+        background: url(./assets/images/illustration-sign-up-mobile.svg);
+        border-radius: 0 0 20px 20px;
+    }
+
+    section[class="card-image-container"] svg {
+        display: none;
+    }
+
+    section[class="card-text"] h2 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+}
