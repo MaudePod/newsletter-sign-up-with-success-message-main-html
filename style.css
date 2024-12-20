@@ -66,7 +66,7 @@ section[class="card-text"] li {
 }
 
 label[for="email"],
-form {
+section[class="form"] {
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
@@ -88,7 +88,7 @@ input[id="email"] {
     cursor: pointer;
 }
 
-form:has(input[id="email"]:user-invalid) {
+section[class="form"]:has(input[id="email"]:user-invalid) {
     input[id="email"] {
         background: pink;
         border-color: var(--tomato);
@@ -116,6 +116,24 @@ button {
     font-size: 1.1rem;
     cursor: pointer;
 }
+label[for="button"] {
+	height: 50px;
+	background-color: var(--dark-slate-grey);
+	border-color: transparent;
+	outline-color: transparent;
+	border-radius: 10px;
+	color: white;
+	font-weight: 700;
+	font-size: 1.1rem;
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+    user-select: none;
+}
+input[id="button"],
+input[id="button-dismiss"] {
+    display: none;
+}
 
 section[class="card-image-container"] {
     height: 100%;
@@ -128,6 +146,64 @@ section[class="card-image-container"] svg {
     width: 100%;
 }
 
+section[class="sucess-message"] {
+    display: none;
+}
+
+main:has(input[id="button"]:checked) {
+    section[class="sucess-message"] {
+        display: grid;
+        background: white;
+        height: 70cqh;
+        width: 40cqw;
+        box-sizing: border-box;
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0px 0px 10px 0px white;
+    }
+
+    section[class="sign-up-form-card"] {
+        display: none;
+    }
+    section[class="sucess-message"] svg {
+        height: 100px;
+        width: 100px;
+    }
+    section[class="sucess-message"] h1   {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--dark-slate-grey);
+    }
+    section[class="sucess-message"] span[id="email"]
+    {
+        font-weight: 700;
+        color: var(--dark-slate-grey);
+    }
+
+}
+main:has(input[id="button-dismiss"]:checked) {
+    section[class="sign-up-form-card"] {
+        display: grid;
+    }
+    section[class="sucess-message"] {
+        display: none;
+    }
+}
+
+section[class="sucess-message"] label[for="button-dismiss"] {
+	height: 50px;
+	background-color: var(--tomato);
+	border-color: transparent;
+	outline-color: transparent;
+	border-radius: 10px;
+	color: white;
+	font-weight: 700;
+	font-size: 1.1rem;
+	cursor: pointer;
+    display: grid;
+    place-items: center;
+    user-select: none;
+}
 div {
     position: absolute;
     bottom: 5px;
